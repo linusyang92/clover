@@ -555,7 +555,7 @@ MainBuildScript() {
     if [[ -d .svn ]]; then
         repoRev=$(svnversion -n | tr -d [:alpha:])
     elif [[ -d .git ]]; then
-        repoRev=$(git svn find-rev git-svn | tr -cd [:digit:])
+        repoRev=$(git branch | tr -cd [:digit:])
     fi
 
     echo -n "${repoRev}" > "${VERSTXT}"
